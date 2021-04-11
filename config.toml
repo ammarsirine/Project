@@ -88,10 +88,6 @@ canonifyURLs = true
         url   = "/contact/"
         weight = 10
 
-[[menu.main]]
-        name  = "Connexion à l'espace privé"
-        url   = "/connexion/"
-        weight = 20
 
 
 #[params.share]

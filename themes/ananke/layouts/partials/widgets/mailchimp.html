@@ -1,65 +1,40 @@
-{{ if isset .Site.Params.widgets "mailchimp" }}
-{{ if isset .Site.Params.widgets "mailchimpform" }}
-{{ if .Site.Params.widgets.mailchimp }}
-<aside id="blog_subscription-2" class="widget"><h3 class="widget-title">{{with .Site.Data.l10n.widgets.mailchimp.title}}{{.}}{{end}}</h3>
-  <form action="/connexion/" method="post">
-    <div>
-      <p>{{with .Site.Data.l10n.widgets.mailchimp.subscribe_text}}{{.}}{{end}}</p>
-    </div>
-    <p>
-      <input name="EMAIL" placeholder="Nom d'utilisateur">
-    </p>
-    <p>
-      <input name="FNAME" value="" placeholder="Mot de passe" type="name">
-    </p>
+<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
 
-    <p >
-      <input value="se connecter" type="submit">
-    </p>
-    <p>Se souvenir de moi
-    <input type="checkbox" id="Sirine" name="Sirine" checked> </p>
-    <p> Mot de passe oublié ?</p>
-  </form>
-			<script>
-			/*
-			Custom functionality for safari and IE
-			 */
-			(function( d ) {
-				// In case the placeholder functionality is available we remove labels
-				if ( ( 'placeholder' in d.createElement( 'input' ) ) ) {
-					var label = d.querySelector( 'label[for=subscribe-field-blog_subscription-2]' );
-						label.style.clip 	 = 'rect(1px, 1px, 1px, 1px)';
-						label.style.position = 'absolute';
-						label.style.height   = '1px';
-						label.style.width    = '1px';
-						label.style.overflow = 'hidden';
-				}
+<HEAD>
 
-				// Make sure the email value is filled in before allowing submit
-				var form = d.getElementById('subscribe-blog-blog_subscription-2'),
-					input = d.getElementById('subscribe-field-blog_subscription-2'),
-					handler = function( event ) {
-						if ( '' === input.value ) {
-							input.focus();
+<SCRIPT LANGUAGE="JavaScript">
 
-							if ( event.preventDefault ){
-								event.preventDefault();
-							}
+<!-- Begin
+function Login(form) {
+var username = form.username.value;
+var password = form.password.value;
+var server = form.server.value;
+if (username =='sammar' && password=='123' && server) {
+var htsite = "/connexion";
+window.location = htsite;
+}
+else {
+alert("Please enter your username and password.");
+   }
+}
+//  End -->
+</script>
 
-							return false;
-						}
-					};
+</HEAD>
 
-				if ( window.addEventListener ) {
-					form.addEventListener( 'submit', handler, false );
-				} else {
-					form.attachEvent( 'onsubmit', handler );
-				}
-			})( document );
-			</script>
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
 
-</aside>
+<BODY>
 
-{{ end }}
-{{ end }}
-{{ end }}
+<!-- The hidden form field "server" needs to be the
+     address of your password protected directory. -->
+
+<form name=login>
+<input type="hidden" name="server" value="www.domain.com/secure/">
+Username:
+<input type=text name=username size=20>
+<br><br>
+Password:
+<input type=password name=password size=20>
+<input type=button value="Login!" onClick="Login(this.form)" name="button">
+</form>

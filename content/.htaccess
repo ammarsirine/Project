@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Password Protected Area"
-AuthUserFile E:/exampleSite/.htpasswd
-Require valid-user
